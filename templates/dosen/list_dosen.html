@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4" style="color: #013880">Data Dosen</h1>
+  <p class="lead">Silahkan Input Data Dosen</p>
+  <a href="/dosen" class="btn btn-primary mb-3">Input Data Dosen</a>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead style="background-color: #013880; color: white">
+        <tr>
+          <th scope="col">NIP</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Alamat</th>
+          <th scope="col">Jenis Kelamin</th>
+          <th scope="col">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dosen in data_dosen %}
+        <tr>
+          <td>{{ dosen.nip }}</td>
+          <td>{{ dosen.nama_dosen }}</td>
+          <td>{{ dosen.alamat }}</td>
+          <td>{{ dosen.jenis_kelamin }}</td>
+          <td>
+            <a
+              href="{{ url_for('edit_dosen', id=dosen._id) }}"
+              class="btn btn-success btn-sm"
+              >Edit</a
+            >
+            <a
+              href="{{ url_for('delete_dosen', id=dosen._id) }}"
+              class="btn btn-danger btn-sm"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

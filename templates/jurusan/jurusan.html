@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1 id="title">Form Input Data Jurusan</h1>
+  <p id="description">Silahkan Input Data Jurusan</p>
+  <a href="/list_jurusan" class="nav-link">Lihat Data Jurusan</a>
+  <form
+    id="survey-form"
+    method="POST"
+    action="/jurusan"
+    onsubmit="return validateForm()"
+    class="form">
+    <div class="form-group">
+      <label for="nama_jurusan">Nama Jurusan</label>
+      <input
+        autofocus
+        type="text"
+        class="form-control"
+        id="nama_jurusan"
+        name="nama_jurusan"
+        placeholder="Enter your Jurusan"
+        required />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1>Form Konsultasi Dosen</h1>
+  <form method="POST" action="{{ url_for('konsultasi') }}">
+    <div class="form-group">
+      <label for="nama">Nama:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nama"
+        name="nama"
+        value="{{ session['username'] }}"
+        readonly
+        required />
+    </div>
+    <div class="form-group">
+      <label for="dosen">Dosen:</label>
+      <select class="form-control" id="dosen" name="dosen" required>
+        {% for d in data_dosen %}
+        <option value="{{ d.nama_dosen }}">{{ d.nama_dosen }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="waktu">Waktu Konsultasi:</label>
+      <input
+        type="datetime-local"
+        class="form-control"
+        id="waktu"
+        name="waktu"
+        required />
+    </div>
+    <div class="form-group">
+      <label for="laporan">Laporan:</label>
+      <textarea
+        class="form-control"
+        id="laporan"
+        name="laporan"
+        rows="3"
+        required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Tambahkan Konsultasi</button>
+  </form>
+</div>
+{% endblock %}

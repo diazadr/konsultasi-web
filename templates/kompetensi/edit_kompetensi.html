@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1>Edit Data Kompetensi</h1>
+  <form
+    method="POST"
+    action="{{ url_for('update_kompetensi', id=kompetensi._id) }}"
+    class="form">
+    <div class="form-group">
+      <label for="nama_kompetensi">Nama Kompetensi:</label><br />
+      <input
+        type="text"
+        id="nama_kompetensi"
+        name="i_nama_kompetensi"
+        value="{{ kompetensi.nama_kompetensi }}"
+        required
+        class="form-control" /><br />
+    </div>
+    <input type="submit" value="Update" class="btn btn-primary" />
+  </form>
+</div>
+{% endblock %}

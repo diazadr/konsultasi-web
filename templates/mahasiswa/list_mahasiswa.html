@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4" style="color: #013880">Data Mahasiswa</h1>
+  <p class="lead">Silahkan Input Data Mahasiswa</p>
+  <a href="/mahasiswa" class="btn btn-primary mb-3">Input Data Mahasiswa</a>
+  <form action="/list_mahasiswa" method="POST" class="mb-4">
+    <div class="form-row">
+      <div class="col-md-6 mb-2">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="inputSearch"
+            name="search"
+            placeholder="Cari berdasarkan NIM atau Nama" />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">
+              Cari
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-2">
+        <select id="inputOrder" class="form-control" name="order">
+          <option selected disabled>Pilih Urutan</option>
+          <option value="ascending">Ascending</option>
+          <option value="descending">Descending</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-primary btn-block" type="submit">Filter</button>
+      </div>
+    </div>
+  </form>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead style="background-color: #013880; color: white">
+        <tr>
+          <th scope="col">NIM</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Alamat</th>
+          <th scope="col">Jurusan</th>
+          <th scope="col">Kompetensi</th>
+          <th scope="col">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for mhs in data_mahasiswa %}
+        <tr>
+          <td>{{ mhs.nim }}</td>
+          <td>{{ mhs.nama }}</td>
+          <td>{{ mhs.alamat }}</td>
+          <td>{{ mhs.jurusan }}</td>
+          <td>{{ ', '.join(mhs.kompetensi) }}</td>
+
+          <td>
+            <a
+              href="{{ url_for('edit_mahasiswa', id=mhs._id) }}"
+              class="btn btn-success btn-sm"
+              >Edit</a
+            >
+            <a
+              href="{{ url_for('delete_mahasiswa', id=mhs._id) }}"
+              class="btn btn-danger btn-sm"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

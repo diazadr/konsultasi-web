@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1>Edit Data Jurusan</h1>
+  <form
+    method="POST"
+    action="{{ url_for('update_jurusan', id=jurusan._id) }}"
+    class="form">
+    <div class="form-group">
+      <label for="nama_jurusan">Nama Jurusan:</label><br />
+      <input
+        type="text"
+        id="nama_jurusan"
+        name="i_nama_jurusan"
+        value="{{ jurusan.nama_jurusan }}"
+        required
+        class="form-control" /><br />
+    </div>
+    <input type="submit" value="Update" class="btn btn-primary" />
+  </form>
+</div>
+{% endblock %}

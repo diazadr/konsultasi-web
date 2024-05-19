@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4" style="color: #013880">Data Jurusan</h1>
+  <p class="lead">Silahkan Input Data Jurusan</p>
+  <a href="/jurusan" class="btn btn-primary mb-3">Input Data Jurusan</a>
+  <form action="/list_jurusan" method="POST" class="mb-4">
+    <div class="form-row">
+      <div class="col-md-6 mb-2">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="inputSearch"
+            name="search"
+            placeholder="Cari berdasarkan Nama Jurusan" />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">
+              Cari
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead style="background-color: #013880; color: white">
+        <tr>
+          <th scope="col">Nama Jurusan</th>
+          <th scope="col">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for j in data_jurusan %}
+        <tr>
+          <td>{{ j.nama_jurusan }}</td>
+          <td>
+            <a
+              href="{{ url_for('edit_jurusan', id=j._id) }}"
+              class="btn btn-success btn-sm"
+              >Edit</a
+            >
+            <a
+              href="{{ url_for('delete_jurusan', id=j._id) }}"
+              class="btn btn-danger btn-sm"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konsultasi POLMAN</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        min-height: 100vh;
+      }
+      main {
+        padding: 20px;
+      }
+      img {
+        width: 100%;
+        display: flex;
+      }
+      .plan__container .subheader {
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: 600;
+        color: var(--text-dark);
+        letter-spacing: 5px;
+      }
+      .plan__container .section__header {
+        text-align: center;
+        font-size: 3rem;
+        line-height: 4rem;
+        margin-bottom: 1rem;
+      }
+      .plan__container .description {
+        text-align: center;
+        color: var(--text-light);
+      }
+      .plan__grid {
+        margin-top: 4rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      .plan__content .number {
+        display: inline-block;
+        padding: 5px 15px;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--white);
+        background-color: var(--primary-color);
+        border-radius: 2rem;
+      }
+      .plan__content .number:nth-of-type(4) {
+        background-color: #e98b6d;
+      }
+      .plan__content .number:nth-of-type(7) {
+        background-color: #ffcca3;
+      }
+      .plan__content h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+      .plan__content p {
+        color: var(--text-light);
+        margin-bottom: 2rem;
+      }
+      .plan__image {
+        position: relative;
+      }
+      .plan__image img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 10rem;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+      }
+      .plan__image img:nth-of-type(1) {
+        max-width: 250px;
+        transform: translate(calc(-50% - 9rem), calc(-50% + 5rem));
+        z-index: 3;
+      }
+      .plan__image img:nth-of-type(2) {
+        max-width: 260px;
+        transform: translate(-50%, calc(-50% - 5rem));
+        z-index: 2;
+      }
+      .plan__image img:nth-of-type(3) {
+        max-width: 230px;
+        transform: translate(calc(-50% + 9rem), calc(-50% + 5rem));
+      }
+      .navbar {
+        background-color: #013880 !important;
+        box-shadow: 0 4px 2px -2px gray;
+      }
+      .navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .navbar-brand,
+      .navbar-nav .nav-link {
+        color: white;
+      }
+      .btn-primary {
+        background-color: white;
+        color: #013880;
+        border: none;
+        border-radius: 5px;
+      }
+      .header {
+        height: 100vh;
+        background: linear-gradient(
+            rgba(45, 92, 132, 0.5),
+            rgba(45, 92, 132, 0.5)
+          ),
+          url("/static/assets/attendance.png") center/cover no-repeat;
+      }
+      footer {
+        background-color: #013880;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      .header__container {
+        padding: 10rem 0 15rem;
+        text-align: center;
+        color: var(--white);
+      }
+      .header__container h1 span {
+        color: var(--primary-color);
+      }
+      .booking__container {
+        padding: 0;
+      }
+      .booking__form {
+        padding: 2rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        background-color: var(--white);
+        border-radius: 10px;
+        transform: translateY(-50%);
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+      }
+      .input__group {
+        display: flex;
+        align-items: center;
+      }
+      .input__group span {
+        margin-right: 0.5rem;
+      }
+      .section__container {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 5rem 1rem;
+      }
+      .card {
+        box-shadow: 0 4px 2px -2px gray;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              src="/static/assets/Polman_white.png"
+              alt="Logo"
+              width="125"
+              height="50" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#loginModal">
+                  Login
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="section__container header__container" id="home">
+        <p>Welcome To</p>
+        <h1>Praktikum AE<br />Pustaka <span>POLMAN</span></h1>
+      </div>
+      <div class="container mt-3">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        <div
+          class="alert alert-{{ category }} alert-dismissible fade show"
+          role="alert">
+          {{ message }}
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+      </div>
+    </header>
+    <main>
+      <section class="section__container plan__container">
+        <p class="subheader">Dukungan Akademik</p>
+        <h2 class="section__header">
+          Rencanakan Masa Depan Anda dengan Percaya Diri
+        </h2>
+        <p class="description">
+          Temukan berbagai informasi dan dukungan untuk perjalanan akademik
+          Anda, serta ketahui apa yang dapat diharapkan sepanjang perjalanan
+          pendidikan Anda.
+        </p>
+        <div class="plan__grid">
+          <div class="plan__content">
+            <h4>Persyaratan Pendaftaran</h4>
+            <p>
+              Dapatkan informasi terbaru tentang persyaratan pendaftaran untuk
+              memastikan Anda siap untuk memulai perjalanan akademik di
+              Politeknik Manufaktur Bandung dengan lancar dan tanpa hambatan.
+            </p>
+
+            <h4>Asuransi Pendidikan Multi-risiko</h4>
+            <p>
+              Perlindungan komprehensif untuk ketenangan pikiran Anda, mencakup
+              berbagai risiko pendidikan dan situasi tak terduga.
+            </p>
+            <h4>Persyaratan Pendidikan Berdasarkan Program Studi</h4>
+            <p>
+              Tetap terinformasi dan rencanakan studi Anda dengan mudah, karena
+              kami menyediakan informasi terbaru tentang persyaratan pendidikan
+              khusus untuk program studi yang Anda pilih.
+            </p>
+          </div>
+          <div class="plan__image">
+            <img src="/static/assets/one.jpg" alt="plan" />
+            <img src="/static/assets/two.jpg" alt="plan" />
+            <img src="/static/assets/three.jpg" alt="plan" />
+          </div>
+        </div>
+      </section>
+    </main>
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="loginForm" action="/login" method="post">
+              <div class="form-group">
+                <label for="inputEmail">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputEmail"
+                  name="username"
+                  placeholder="Masukkan email" />
+              </div>
+              <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputPassword"
+                  name="password"
+                  placeholder="Masukkan kata sandi" />
+              </div>
+              <div
+                id="loginAlert"
+                class="alert alert-danger d-none"
+                role="alert">
+                Login gagal. Silakan periksa kembali username dan password Anda.
+              </div>
+              <button type="submit" class="btn btn-primary">Masuk</button>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <p>
+              Belum punya akun?
+              <a href="#" data-toggle="modal" data-target="#registerModal"
+                >Daftar di sini</a
+              >
+            </p>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal">
+              Tutup
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="registerModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="registerModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registerModalLabel">Register</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/register" method="post">
+              <div class="form-group">
+                <label for="registerName">Nama</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="registerName"
+                  name="name"
+                  placeholder="Masukkan nama" />
+              </div>
+              <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="registerEmail"
+                  name="email"
+                  placeholder="Masukkan email" />
+              </div>
+              <div class="form-group">
+                <label for="registerUsername">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="registerUsername"
+                  name="username"
+                  placeholder="Masukkan username" />
+              </div>
+              <div class="form-group">
+                <label for="registerPassword">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="registerPassword"
+                  name="password"
+                  placeholder="Masukkan kata sandi" />
+              </div>
+              <button type="submit" class="btn btn-primary">Daftar</button>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <p>
+              Sudah punya akun?
+              <a href="#" data-toggle="modal" data-target="#loginModal"
+                >Masuk di sini</a
+              >
+            </p>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal">
+              Tutup
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer mt-auto py-3">
+      <div class="container text-center">
+        <span class="text-muted">Copyright © 2024 Diaz Dev</span>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#loginModal").on("hide.bs.modal", function (e) {
+          if ($("#registerModal").hasClass("show")) {
+            e.preventDefault();
+          }
+        });
+
+        $("#registerModal").on("show.bs.modal", function (e) {
+          $("#loginModal").modal("hide");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -33,7 +33,7 @@ pip install flask pymongo
 ```
 py app.py
 ```
-ow, you should be able to access the application at localhost:5000 (or whatever port you have configured).
+Now, you should be able to access the application at localhost:5000 (or whatever port you have configured).
 
 Contributing 
 We welcome contributions! Please see our Contributing Guidelines for more details.

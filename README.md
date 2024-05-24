@@ -39,3 +39,7 @@ Contributing
 We welcome contributions! Please see our Contributing Guidelines for more details.
 
 This README includes a brief description of the project, detailed setup instructions, and information about contributing and the project's license. You can customize it to better fit your project's needs. 😊
+
+This project is intended to fulfill the NoSQL Database course requirement at the Bandung Manufacturing Polytechnic.
+
+Feel free to adjust the content further to better suit your project's specifics!

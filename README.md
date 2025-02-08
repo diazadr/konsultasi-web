@@ -80,23 +80,23 @@ This project is a case study for the **NoSQL Database** course, implemented usin
    cd Konsultasi_Web
    
 3. Set up a virtual environment and activate it:
-```
-python -m venv env
-cd env/Scripts
-activate
-cd ../..
-```
+  ```
+  python -m venv env
+  cd env/Scripts
+  activate
+  cd ../..
+  ```
 4. Install the required Python packages:
-```
-pip install flask pymongo
-```
+  ```
+  pip install flask pymongo
+  ```
 5. Run the application:
-```
-py app.py
-```
+  ```
+  py app.py
+  ```
 
 ## Usage
-1. Open a browser and navigate to localhost:5000.
+1. Open a browser and navigate to `localhost:5000`.
 2. Register or log in to access the features.
 3. Manage consultations, edit profiles, and use CRUD functionalities.
 4. All data is stored in the MongoDB database.

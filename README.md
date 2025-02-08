@@ -1,6 +1,6 @@
 # Konsultasi_Web
 
-![Project Status](https://img.shields.io/badge/status-completed-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue)
+![Project Status](https://img.shields.io/badge/status-completed-brightgreen) [![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
 This project is a case study for the **NoSQL Database** course, implemented using **Python 3.12.3**, the **Flask** framework, and **MongoDB** as the database.
 
